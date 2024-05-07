@@ -71,6 +71,14 @@ Item* generateItem()
 
 int main()
 {
+    std::cout << "Level 1, what is you player name? \n";
+    std::string playerName;
+    std::cin >> playerName;
+    Player* p1 = new Player(playerName);
+    p1->add_item(generateItem());
+
+
+
     //Enemy inamic = createEnemy();
     // pointer * nume_ptr = new Obj()
     int* numar = new int();
