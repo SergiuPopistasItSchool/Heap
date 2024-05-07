@@ -54,6 +54,14 @@ public:
             m_invetory.push_back(item);
         }
     }
+    void checkInventory()
+    {
+        std::cout << "Player " << m_player_name << " has the following inventory\n";
+        for (int i = 0; i < m_invetory.size(); i++)
+        {
+            std::cout << m_invetory[i]->getItemName() << std::endl;
+        }
+    }
 
 private:
     std::string m_player_name;
@@ -76,6 +84,7 @@ int main()
     std::cin >> playerName;
     Player* p1 = new Player(playerName);
     p1->add_item(generateItem());
+    p1->checkInventory();
 
 
 
