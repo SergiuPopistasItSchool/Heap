@@ -49,9 +49,13 @@ public:
         std::cout << "YES or NO\n";
         std::string raspuns;
         std::cin >> raspuns;
-        if (raspuns == "YES")
+        if (raspuns == "Yes")
         {
             m_invetory.push_back(item);
+        }
+        else
+        {
+            delete item;
         }
     }
     void checkInventory()
@@ -62,7 +66,15 @@ public:
             std::cout << m_invetory[i]->getItemName() << std::endl;
         }
     }
-
+    ~Player()
+    {
+        std::cout << "Player " << m_player_name << " is out\n";
+        //facem curat si in inventar
+        for (int i = 0; i < m_invetory.size(); i++)
+        {
+           delete m_invetory[i];
+        }
+    }
 private:
     std::string m_player_name;
     std::vector<Item*> m_invetory;
@@ -85,6 +97,7 @@ int main()
     Player* p1 = new Player(playerName);
     p1->add_item(generateItem());
     p1->checkInventory();
+    delete p1;
 
 
 
@@ -113,3 +126,9 @@ int main()
     if (inamic_2 != nullptr)
         delete inamic_2;
 }
+/*
+Aplicație pentru Gestionarea Evenimentelor
+Scopul Temei:
+Implementează o aplicație care gestionează evenimente, 
+permițând utilizatorilor să adauge și să șteargă evenimente dintr-o agendă.
+*/
